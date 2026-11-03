@@ -1,0 +1,1 @@
+{"name":"sorpresa-rosa","version":"1.0.0","private":true,"scripts":{"dev":"node server.cjs","check":"node --check dist/app.js && node --check dist/config.js && node --check dist/memories.js"}}

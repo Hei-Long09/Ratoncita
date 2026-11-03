@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#efa2b5">
+  <meta name="description" content="Hay una pequeña sorpresa de cumpleaños esperando por ti. Ábrela con tu clave especial.">
+  <meta property="og:title" content="Tengo una sorpresa para ti ♡">
+  <meta property="og:description" content="Un pequeño secreto. Un día muy especial. Algo hecho con mucho cariño.">
+  <title>Una sorpresa para ti ♡</title>
+  <link rel="icon" href="assets/heart.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="memories.css">
+  <script src="config.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="memories.js" defer></script>
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"><span>♡</span><span>✧</span><span>♡</span><span>✧</span><span>♡</span></div>
+  <header class="brand"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg> UN DETALLE PARA TI</header>
+  <main>
+    <section class="card" id="entry" aria-labelledby="entry-title">
+      <div class="illustration"><img src="assets/heart-friend.png" alt="Un pequeño personaje de ojos grandes sosteniendo un corazón rosa" width="144" height="144"><span class="glint glint-one" aria-hidden="true">✧</span><span class="glint glint-two" aria-hidden="true">✦</span></div>
+      <p class="eyebrow">SHHH… ES UN SECRETO</p>
+      <h1 id="entry-title">Hay una sorpresa<br>esperando por ti<span class="title-heart"> ♡</span></h1>
+      <p class="intro">Las cosas más bonitas se abren<br>con una clave especial.</p>
+      <form id="unlock-form" novalidate>
+        <label for="password">Tu clave secreta</label>
+        <div class="input-wrap"><svg class="lock" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg><input id="password" name="password" type="password" inputmode="text" autocapitalize="none" spellcheck="false" autocomplete="off" placeholder="Escribe tu apodo" aria-describedby="hint feedback" required><button type="button" class="eye" id="toggle-password" aria-label="Mostrar clave" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+        <p class="hint" id="hint"><span aria-hidden="true"></span> Pista: el apodo que te di</p>
+        <p class="feedback" id="feedback" role="status" aria-live="polite"></p>
+        <button class="primary" type="submit">Abrir mi sorpresa <span aria-hidden="true">→</span></button>
+      </form>
+      <div class="card-footer"><span aria-hidden="true">✧</span> Solo tú tienes la llave <span aria-hidden="true">✧</span></div>
+    </section>
+    <section class="card surprise" id="surprise" hidden aria-labelledby="birthday-title" tabindex="-1">
+      <div class="birthday-icon" aria-hidden="true">🎂</div>
+      <p class="eyebrow">HOY EL DÍA ES TODO TUYO</p>
+      <h1 id="birthday-title">¡Feliz cumpleaños!</h1>
+      <p class="recipient" id="recipient"></p>
+      <p class="birthday-message" id="birthday-message"></p>
+      <div class="wish"><span aria-hidden="true">✧</span> Pide un deseo. Lo bonito apenas comienza.</div>
+      <button class="primary" id="celebrate" type="button">Un poquito más de magia <span aria-hidden="true">♡</span></button>
+      <button class="primary more-surprises" id="more-surprises" type="button">Hay más sorpresas para ti <span aria-hidden="true">✧</span></button>
+      <button class="back" id="back" type="button">Volver al inicio</button>
+    </section>
+  </main>
+  <section class="stars-screen" id="stars-screen" hidden aria-labelledby="stars-title" tabindex="-1">
+    <video class="stars-video" id="stars-video" src="assets/estrellas.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+    <div class="stars-shade" aria-hidden="true"></div>
+    <audio id="stars-music" loop preload="auto"><source src="assets/fecility.mp3" type="audio/mpeg"></audio>
+    <div class="stars-toolbar">
+      <button class="stars-control" id="close-stars" type="button">← Volver</button>
+      <button class="stars-control" id="toggle-music" type="button" aria-pressed="true">Pausar música ♫</button>
+    </div>
+    <div class="stars-content">
+      <p class="stars-eyebrow">UN DESEO ENTRE LAS ESTRELLAS</p>
+      <h2 id="stars-title"></h2>
+      <p class="stars-intro" id="stars-intro"></p>
+      <div class="stars-lines" id="stars-lines" aria-live="polite" aria-relevant="additions"></div>
+      <button class="primary stars-next" id="stars-next" type="button">Pide un deseo <span aria-hidden="true">✧</span></button>
+      <button class="primary stars-next" id="stars-more" type="button" hidden>Cariño, todavía hay más <span aria-hidden="true">♡</span></button>
+      <p class="stars-hint" id="stars-hint">Un pequeño momento, solo para ti.</p>
+      <p class="media-status" id="media-status" role="status"></p>
+    </div>
+  </section>
+  <section class="memories-screen" id="memories-screen" hidden aria-label="Una carta y nuestros recuerdos" tabindex="-1">
+    <div class="memory-squares" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <audio id="memories-music" loop preload="auto"><source src="assets/happybirthday.mpeg" type="audio/mpeg"></audio>
+    <div class="memories-toolbar">
+      <button class="memory-control" id="close-memories" type="button">← Volver</button>
+      <button class="memory-control" id="pause-memories" type="button" aria-pressed="false">Pausar lectura</button>
+      <button class="memory-control" id="memories-sound" type="button" aria-pressed="true">Pausar música ♫</button>
+    </div>
+    <p class="memory-media-status" id="memory-media-status" role="status"></p>
+    <div class="memories-viewport" id="memories-viewport" tabindex="0" aria-label="Recorrido de fotos y dedicatorias">
+      <section class="memory-letter-page" id="memory-letter-page">
+        <div class="memory-letter" id="memory-letter">
+          <p class="eyebrow">PARA MI RATONCITA</p>
+          <h2>Hay cosas que quiero decirte…</h2>
+          <div class="memory-letter-lines" id="memory-letter-lines"></div>
+          <span class="letter-signature" aria-hidden="true">Con todo mi cariño ♡</span>
+        </div>
+      </section>
+      <div id="memory-album" hidden></div>
+    </div>
+    <p class="memory-progress" id="memory-progress" role="status">Una carta para ti</p>
+  </section>
+  <section class="gift-screen" id="gift-screen" hidden aria-label="Un regalo más para Florecita" tabindex="-1">
+    <video class="gift-background" id="gift-background" muted loop playsinline preload="metadata" aria-hidden="true"><source src="assets/princesa.mp4" type="video/mp4"></video>
+    <div class="gift-shade" aria-hidden="true"></div>
+    <video class="gift-video" id="gift-video" controls playsinline preload="metadata" aria-label="Un regalo de Jhonatan"><source src="assets/by%20jhonatan.mp4" type="video/mp4"></video>
+    <div class="gift-toolbar">
+      <button class="memory-control" id="close-gift" type="button">← Volver a los recuerdos</button>
+      <button class="memory-control" id="gift-fullscreen" type="button">Pantalla completa ⛶</button>
+    </div>
+    <div class="gift-notice">
+      <p id="gift-status" role="status"></p>
+      <button class="primary" id="gift-play" type="button" hidden>Reproducir mi regalo ♡</button>
+    </div>
+    <section class="gift-gallery" id="gift-gallery" hidden aria-labelledby="gallery-title">
+      <p class="eyebrow">TODAVÍA QUEDAN RECUERDOS</p>
+      <h2 id="gallery-title" tabindex="-1">Video recuerdos ♡</h2>
+      <div class="gift-video-grid" id="gift-video-grid"></div>
+    </section>
+    <button class="memory-control gallery-return" id="gallery-return" type="button" hidden>← Lista de videos</button>
+  </section>
+  <dialog class="video-password-dialog" id="video-password-dialog" aria-labelledby="video-password-title">
+    <form id="video-password-form" novalidate>
+      <p class="eyebrow">LA CAJA DE PANDORA ♡</p>
+      <h2 id="video-password-title">Cariño, adivina la contraseña</h2>
+      <p>Recuerda: si la abres, no hay vuelta atrás.</p>
+      <label for="video-password">Tu clave secreta</label>
+      <input id="video-password" type="password" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="Escribe tu apodo" aria-describedby="video-password-error">
+      <p class="feedback" id="video-password-error" role="status"></p>
+      <button class="primary" type="submit">Abrir este video ♡</button>
+      <button class="back" id="cancel-video-password" type="button">Mejor después</button>
+    </form>
+  </dialog>
+  <footer class="page-footer">Hecho con mucho cariño <span aria-hidden="true">♡</span></footer>
+  <div id="confetti" aria-hidden="true"></div>
+</body>
+</html>
